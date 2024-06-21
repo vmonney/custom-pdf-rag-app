@@ -1,3 +1,10 @@
+all the cache files
 __pycache__
+.ruff_cache/
+.vscode/
+.DS_Store
 
-pdf_downloads/
+# pdf_downloads/
+
+# secret stuffs
+.env

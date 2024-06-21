@@ -1,79 +1,38 @@
-# pdf_rag
+# Bon à Savoir RAG Chatbot
 
-## Installation
+## Overview
 
-Install the LangChain CLI if you haven't yet
+Welcome to the Bon à Savoir RAG Chatbot! Have you ever wished you could get answers from a magazine without flipping through pages and pages? This chatbot is your solution! It takes the content of all "Bon à Savoir" magazines from 2014 until now, allowing you to ask any question and get answers based on this extensive archive. Say goodbye to tedious searches and hello to instant information!
 
-```bash
-pip install -U langchain-cli
+## Features
+
+- **Ask Anything:** Query the entire archive of "Bon à Savoir" magazines from 2014 onwards.
+- **Instant Answers:** Get responses based on the rich content of the magazine's articles.
+- **User-Friendly Interface:** Enjoy an easy-to-use chatbot experience.
+
+## Usage
+
+Run the chatbot with the following command:
+
+```sh
+python run_chatbot.py
 ```
 
-## Adding packages
+## How It Works
 
-```bash
-# adding packages from 
-# https://github.com/langchain-ai/langchain/tree/master/templates
-langchain app add $PROJECT_NAME
+The chatbot uses Retrieval-Augmented Generation (RAG) to pull information from the magazines and generate accurate answers. Simply type your question, and the chatbot does the rest!
 
-# adding custom GitHub repo packages
-langchain app add --repo $OWNER/$REPO
-# or with whole git string (supports other git providers):
-# langchain app add git+https://github.com/hwchase17/chain-of-verification
+## Contributing
 
-# with a custom api mount point (defaults to `/{package_name}`)
-langchain app add $PROJECT_NAME --api_path=/my/custom/path/rag
-```
+We welcome contributions! Feel free to fork the repository and submit pull requests with enhancements or bug fixes.
 
-Note: you remove packages by their api path
+## More infos
+if you would like to create your own RAG. I suggest you follow this amazing tutorial from Austin Vance [End to End LangChain Tutorial For Building A Custom RAG with OpenAI.](https://dev.to/focusedlabs/chat-with-your-pdfs-an-end-to-end-langchain-tutorial-for-building-a-custom-rag-with-openai-part-1-3oi3)
+## License
 
-```bash
-langchain app remove my/custom/path/rag
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Setup LangSmith (Optional)
-LangSmith will help us trace, monitor and debug LangChain applications. 
-LangSmith is currently in private beta, you can sign up [here](https://smith.langchain.com/). 
-If you don't have access, you can skip this section
+## Contact
 
+For questions or support, please open an issue in the GitHub repository.
 
-```shell
-export LANGCHAIN_TRACING_V2=true
-export LANGCHAIN_API_KEY=<your-api-key>
-export LANGCHAIN_PROJECT=<your-project>  # if not specified, defaults to "default"
-```
-
-## Launch LangServe
-
-```bash
-langchain serve
-```
-
-## Running in Docker
-
-This project folder includes a Dockerfile that allows you to easily build and host your LangServe app.
-
-### Building the Image
-
-To build the image, you simply:
-
-```shell
-docker build . -t my-langserve-app
-```
-
-If you tag your image with something other than `my-langserve-app`,
-note it for use in the next step.
-
-### Running the Image Locally
-
-To run the image, you'll need to include any environment variables
-necessary for your application.
-
-In the below example, we inject the `OPENAI_API_KEY` environment
-variable with the value set in my local environment
-(`$OPENAI_API_KEY`)
-
-We also expose port 8080 with the `-p 8080:8080` option.
-
-```shell
-docker run -e OPENAI_API_KEY=$OPENAI_API_KEY -p 8080:8080 my-langserve-app
-```
