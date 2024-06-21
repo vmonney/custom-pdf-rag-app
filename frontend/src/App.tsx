@@ -59,6 +59,7 @@ function App() {
 
     await fetchEventSource(`${process.env.REACT_APP_BACKEND_URL}/rag/stream`, {
       method: 'POST',
+      openWhenHidden: true,
       headers: {
         'Content-Type': 'application/json',
       },
