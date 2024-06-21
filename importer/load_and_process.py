@@ -28,7 +28,7 @@ embeddings = OpenAIEmbeddings(
     model=EMBEDDING_MODEL,
 )
 
-text_splitter = SemanticChunker(embeddings=OpenAIEmbeddings())
+text_splitter = SemanticChunker(embeddings=embeddings)
 
 chunks = text_splitter.split_documents(docs)
 
