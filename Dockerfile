@@ -12,7 +12,7 @@ WORKDIR /code
 
 COPY ./pyproject.toml ./README.md ./poetry.lock* ./
 
-COPY ./pdf_downloads ./pdf_downloads
+# COPY ./pdf_downloads ./pdf_downloads
 
 RUN poetry install  --no-interaction --no-ansi --no-root
 
